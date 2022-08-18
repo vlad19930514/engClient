@@ -2,10 +2,10 @@ export interface ICreateList {
 	listName: string
 }
 
-export interface ICreateDelete {
+export interface IListDelete {
 	listId: string
 }
-export interface ICreateUpdate {
+export interface IListUpdate {
 	listName: string
 	listId: string
 }

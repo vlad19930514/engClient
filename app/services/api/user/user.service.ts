@@ -1,10 +1,10 @@
 import { createApi } from '@reduxjs/toolkit/query/react'
 import { axiosBaseQuery } from '../api-helpers/axiosBaseQuery'
 import {
-	ICreateDelete,
 	ICreateList,
-	ICreateUpdate,
-	IWords, 
+	IListDelete,
+	IListUpdate,
+	IWords,
 	IWordsDelete,
 	IWordsUpdate,
 } from './user.types'
@@ -13,21 +13,21 @@ export const userApi = createApi({
 	reducerPath: 'userApi',
 	baseQuery: axiosBaseQuery({ baseUrl: '/' }),
 	endpoints: (builder) => ({
-		apiListCreate: builder.mutation<ICreateList, string>({
+		apiListCreate: builder.mutation<string, string>({
 			query: (list) => ({
 				url: 'list/create',
 				data: { listName: list },
 				method: 'POST',
 			}),
 		}),
-		apiListDelete: builder.mutation<ICreateDelete, ICreateDelete>({
+		apiListDelete: builder.mutation<string, IListDelete>({
 			query: ({ listId }) => ({
 				url: 'list/delete',
 				data: { listId: listId },
 				method: 'POST',
 			}),
 		}),
-		apiListUpdate: builder.mutation<ICreateUpdate, ICreateUpdate>({
+		apiListUpdate: builder.mutation<string, IListUpdate>({
 			query: ({ listId, listName }) => ({
 				url: 'list/update',
 				data: { listId: listId, listName: listName },
