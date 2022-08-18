@@ -1,11 +1,13 @@
 import useAuthRedirect from './useAuthRedirect'
 import { useAuth } from '../../../hooks/useAuth'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { IAuthInput } from './auth.interface'
 import Heading from '@/components/ui/heading/Heading'
 import AuthFields from '@/components/ui/form-elements/AuthFields'
 import { useActions } from '@/hooks/redux/useActions'
+import { GoogleAuth } from './GoogleAuth/GoogleAuth'
+import { useRouter } from 'next/router'
 
 const Auth = () => {
 	useAuthRedirect()
@@ -23,7 +25,7 @@ const Auth = () => {
 	})
 
 	const { login, register } = useActions()
-
+	const { push } = useRouter()
 	const onSubmit: SubmitHandler<IAuthInput> = (data) => {
 		if (type === 'login') login(data)
 		else if (type === 'register') register(data)
@@ -53,6 +55,8 @@ const Auth = () => {
 					</button>
 				</div>
 			</form>
+
+			<GoogleAuth />
 		</section>
 	)
 }

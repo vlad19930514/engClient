@@ -1,9 +1,10 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
 import { getStoreLocal } from '@/utils/local-storage/localStorage'
 
 import { checkAuth, login, logout, register, userProfile } from './user.actions'
-import { IUserInitialState } from './user.interface'
+import { IAuthResponse, IUserInitialState, IUserState } from './user.interface'
+import { AuthService } from '@/services/api/auth/auth.service'
 
 const initialState: IUserInitialState = {
 	user: getStoreLocal('user'),
@@ -13,7 +14,12 @@ const initialState: IUserInitialState = {
 export const userSlice = createSlice({
 	name: 'user',
 	initialState,
-	reducers: {},
+	reducers: {
+		GoogleLogin: (state, action: PayloadAction<IAuthResponse>) => {
+			AuthService.GoogleLogin(action.payload)
+			state.user = action.payload.user
+		},
+	},
 	extraReducers: (builder) => {
 		builder
 			.addCase(register.pending, (state) => {
@@ -58,5 +64,5 @@ export const userSlice = createSlice({
 			})
 	},
 })
-
+export const { GoogleLogin } = userSlice.actions
 export const { reducer } = userSlice

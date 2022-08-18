@@ -25,6 +25,14 @@ export const AuthService = {
 
 		return response
 	},
+	GoogleLogin(data: IAuthResponse) {
+		console.log(12345)
+		if (data.accessToken) {
+			saveToStorage(data)
+		}
+
+		return data.user
+	},
 	async login(email: string, password: string) {
 		const response = await axios.post<IAuthResponse>(
 			`${API_URL}${getAuthUrl('/login')}`,
