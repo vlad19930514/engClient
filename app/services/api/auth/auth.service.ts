@@ -26,7 +26,6 @@ export const AuthService = {
 		return response
 	},
 	GoogleLogin(data: IAuthResponse) {
-		console.log(12345)
 		if (data.accessToken) {
 			saveToStorage(data)
 		}

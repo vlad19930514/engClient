@@ -12,12 +12,9 @@ const AuthPage: NextPage = () => {
 	const { googleResp } = router.query
 	useEffect(() => {
 		if (typeof googleResp == 'string') {
-			console.log(JSON.parse(googleResp))
 			dispatch(GoogleLogin(JSON.parse(googleResp)))
 		}
 	})
-
-	/* 		console.log(String(router.query.id.email)) */
 
 	return <div>Успешно </div>
 }

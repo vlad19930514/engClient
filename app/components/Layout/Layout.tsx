@@ -8,12 +8,11 @@ import { Container } from './styles'
 
 interface ILayout {
 	children: ReactNode
-	themeSwitch: () => void
 }
-function Layout({ children, themeSwitch }: ILayout) {
+function Layout({ children }: ILayout) {
 	return (
 		<Container>
-			<DynamicNavigation themeSwitch={themeSwitch} />
+			<DynamicNavigation />
 			<div>{children}</div>
 		</Container>
 	)

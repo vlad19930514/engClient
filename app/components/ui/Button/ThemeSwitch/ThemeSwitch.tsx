@@ -1,8 +1,15 @@
 import { Container } from './styles'
-interface IThemeSwitch {
-	themeSwitch: () => void
-}
-const ThemeSwitch = ({ themeSwitch }: IThemeSwitch) => {
+import { useDispatch } from 'react-redux'
+import { useTypedSelector } from '@/hooks/useTypedSelector'
+import { useActions } from '@/hooks/redux/useActions'
+
+const ThemeSwitch = () => {
+	const theme = useTypedSelector((state) => state.settings.theme)
+	const { settingsSetTheme } = useActions()
+
+	const themeSwitch = () => {
+		theme === 'Light' ? settingsSetTheme('Dark') : settingsSetTheme('Light')
+	}
 	return (
 		<Container>
 			<input onClick={() => themeSwitch()} type="checkbox" id="switch" />
@@ -12,3 +19,6 @@ const ThemeSwitch = ({ themeSwitch }: IThemeSwitch) => {
 }
 
 export default ThemeSwitch
+function dispatch() {
+	throw new Error('Function not implemented.')
+}

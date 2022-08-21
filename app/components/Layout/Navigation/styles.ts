@@ -6,7 +6,8 @@ interface Props {
 }
 export const Container = styled.div<Props>`
 	display: flex;
-	justify-content: space-between;
+	justify-content: flex-start;
+	/* 	justify-content: space-between; */
 	padding: 0 1vw;
 	margin-bottom: 20px;
 	ul {

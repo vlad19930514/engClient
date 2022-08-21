@@ -4,7 +4,7 @@ import * as MaterialIcons from 'react-icons/md'
 import { TypeMaterialIconName } from '@/shared/types/icons.types'
 import styled from 'styled-components'
 
-const Icon = styled.div`
+const Icon = styled.button`
 	svg {
 		color: ${(props) => props.theme.colors.svgColor};
 	}

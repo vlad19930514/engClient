@@ -1,4 +1,3 @@
-import ThemeSwitch from '@/components/ui/Button/ThemeSwitch/ThemeSwitch'
 import { ReactNode, useEffect, useRef, useState } from 'react'
 import Logo from '../../../assets/Logo'
 
@@ -8,10 +7,9 @@ import { Container } from './styles'
 
 interface NavigationProps {
 	children?: ReactNode
-	themeSwitch: () => void
 }
 
-function Navigation({ children, themeSwitch }: NavigationProps) {
+function Navigation({ children }: NavigationProps) {
 	const [isChecked, setIsChecked] = useState(false)
 
 	const onLink = () => {
@@ -35,7 +33,6 @@ function Navigation({ children, themeSwitch }: NavigationProps) {
 			<Logo />
 			<AuthItems setIsChecked={onLink} isChecked={isChecked} />
 			{children}
-			<ThemeSwitch themeSwitch={themeSwitch} />
 		</Container>
 	)
 }

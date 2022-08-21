@@ -63,6 +63,12 @@ const AuthItems = ({ setIsChecked, isChecked }: IAuth) => {
 					title: 'Profile',
 				}}
 			/>
+			<MenuItem
+				item={{
+					link: '/settings',
+					title: 'settings',
+				}}
+			/>
 			{user ? (
 				<LogoutButton />
 			) : (

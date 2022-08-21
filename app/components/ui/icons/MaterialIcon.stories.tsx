@@ -36,6 +36,9 @@ export const Primary = () => {
 			<IconGallery.Variants name="Login">
 				<MaterialIcon name={'MdLogin'} />
 			</IconGallery.Variants>
+			<IconGallery.Variants name="edit">
+				<MaterialIcon name={'MdEdit'} />
+			</IconGallery.Variants>
 		</IconGallery>
 	)
 }

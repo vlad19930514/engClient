@@ -3,6 +3,7 @@ import { useTypedSelector } from '@/hooks/useTypedSelector'
 import { useApiListDeleteMutation } from '@/services/api/user/user.service'
 import { useEffect } from 'react'
 import Button from '../Button/Button'
+import { MaterialIcon } from '../icons/MaterialIcon'
 import ListWords from './list-words/ListWords'
 import { Container } from './styles'
 
@@ -22,7 +23,11 @@ const List: React.FC = () => {
 		<div className="list-container" key={x._id}>
 			<div className="list-name">
 				Название: {x.listName} ({x.words.length}) слов
-				<Button onClick={() => OnDeleteList(x._id)}>delete list</Button>
+				<MaterialIcon name={'MdEdit'} />
+				<Button onClick={() => console.log(123)}>
+					<MaterialIcon name={'MdEdit'} />
+				</Button>
+				{/* <Button onClick={() => OnDeleteList(x._id)}>delete list</Button> */}
 			</div>
 
 			<ListWords words={x.words} listId={x._id} />
