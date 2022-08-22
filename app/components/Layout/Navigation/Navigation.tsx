@@ -1,3 +1,8 @@
+import { Hamburger } from '@/components/ui/navigation/Hamburger/Hamburger'
+import { useActions } from '@/hooks/redux/useActions'
+import useOnClickOutside from '@/hooks/ueOnClickOutside'
+import { useTypedSelector } from '@/hooks/useTypedSelector'
+import React from 'react'
 import { ReactNode, useEffect, useRef, useState } from 'react'
 import Logo from '../../../assets/Logo'
 
@@ -10,28 +15,16 @@ interface NavigationProps {
 }
 
 function Navigation({ children }: NavigationProps) {
-	const [isChecked, setIsChecked] = useState(false)
+	const { hamburger } = useTypedSelector((state) => state.navigation)
+	const ref = React.createRef<HTMLDivElement>()
+	const { navigationSetHamburger } = useActions()
 
-	const onLink = () => {
-		setIsChecked(false)
-	}
-
+	useOnClickOutside(ref, () => navigationSetHamburger(false))
 	return (
-		<Container checked={isChecked}>
-			<label id="hamburger" htmlFor="checkbox" className="hamburger">
-				<input
-					type="checkbox"
-					id="checkbox"
-					checked={isChecked}
-					onChange={() => setIsChecked(!isChecked)}
-				/>
-				<span className="line line--top"></span>
-				<span className="line line--middle"></span>
-				<span className="line line--bottom"></span>
-			</label>
-
+		<Container checked={hamburger}>
+			<Hamburger ref={ref} />
 			<Logo />
-			<AuthItems setIsChecked={onLink} isChecked={isChecked} />
+			<AuthItems />
 			{children}
 		</Container>
 	)

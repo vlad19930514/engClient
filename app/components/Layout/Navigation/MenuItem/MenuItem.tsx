@@ -6,11 +6,15 @@ import { FC } from 'react'
 import { IMenuItem } from './menu.types'
 import Button from '../../../ui/Button/Button'
 
-const MenuItem: FC<{ item: IMenuItem }> = ({ item }) => {
-	const { asPath } = useRouter()
+import { useActions } from '@/hooks/redux/useActions'
 
+const MenuItem: FC<{ item: IMenuItem }> = ({ item }) => {
+	const { navigationSetHamburger } = useActions()
+	const clickOnMenu = () => {
+		navigationSetHamburger(false)
+	}
 	return (
-		<li>
+		<li onClick={() => clickOnMenu()}>
 			<Link href={item.link}>
 				<a>
 					<Button>

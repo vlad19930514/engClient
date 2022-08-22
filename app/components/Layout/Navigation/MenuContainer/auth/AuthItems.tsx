@@ -1,5 +1,3 @@
-import { FC } from 'react'
-import { useEffect, useRef } from 'react'
 import { useAuth } from '../../../../../hooks/useAuth'
 import LogoutButton from './LogoutButton'
 import MenuItem from '../../MenuItem/MenuItem'
@@ -11,40 +9,12 @@ const UlContainer = styled.ul`
 		margin-right: 1vw;
 	}
 `
-interface IAuth {
-	setIsChecked: () => void
-	isChecked: boolean
-}
-const AuthItems = ({ setIsChecked, isChecked }: IAuth) => {
-	const ref = useRef(null)
 
-	useEffect(() => {
-		isChecked
-			? document.addEventListener('click', handleClickOutside)
-			: document.removeEventListener('click', handleClickOutside)
-	}, [isChecked])
-
-	const handleClickOutside = (event: any) => {
-		if (
-			//@ts-ignore
-			!document.querySelector('#hamburger').contains(event.target) &&
-			//@ts-ignore
-			!ref.current.contains(event.target)
-		) {
-			setIsChecked()
-			document.removeEventListener('click', handleClickOutside)
-		}
-	}
-
+const AuthItems = () => {
 	const { user } = useAuth()
 
-	const clickOnMenu = () => {
-		document.removeEventListener('click', handleClickOutside)
-		setIsChecked()
-	}
-
 	return (
-		<UlContainer ref={ref} onClick={() => clickOnMenu()}>
+		<UlContainer>
 			<MenuItem
 				item={{
 					link: '/edit',
