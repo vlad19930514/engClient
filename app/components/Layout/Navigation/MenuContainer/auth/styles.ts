@@ -28,6 +28,10 @@ export const UlContainer = styled.ul<Props>`
 	li {
 		margin-right: 1vw;
 	}
+	li:not(:last-child) {
+		border-bottom: 1px solid ${(props) => props.theme.colors.primary};
+	}
+
 	@media ${device.tablet} {
 		padding: 0;
 		display: flex;

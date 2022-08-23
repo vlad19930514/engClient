@@ -11,7 +11,7 @@ const AuthItems = () => {
 			<MenuItem
 				item={{
 					link: '/edit',
-					title: 'Редактирование',
+					title: 'Словарь',
 				}}
 			/>
 			<MenuItem
@@ -24,7 +24,7 @@ const AuthItems = () => {
 			<MenuItem
 				item={{
 					link: '/settings',
-					title: 'settings',
+					title: 'Настройки',
 				}}
 			/>
 
