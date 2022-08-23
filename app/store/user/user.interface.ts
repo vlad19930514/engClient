@@ -2,6 +2,9 @@ import { IList, IUser } from '@/shared/types/user.types'
 
 export interface IUserState {
 	email: string
+	given_name?: string
+	family_name?: string
+	picture?: string
 	isAdmin: boolean
 	List: IList[]
 }

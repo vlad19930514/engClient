@@ -7,7 +7,7 @@ export const defaultTheme: DefaultTheme = {
 		background: '#f4fbff',
 		primary: '#3c3c3c',
 		secondary: '#ADC2A9',
-		tertiary: '#D3E4CD',
+		tertiary: '#D0E8F2',
 		svgColor: '#3c3c3c',
 		switch: '#2C394B',
 		button: {
@@ -25,7 +25,7 @@ export const darkTheme: DefaultTheme = {
 		background: '#2C394B',
 		primary: '#A0C1B8',
 		secondary: '#719FB0',
-		tertiary: '#726A95',
+		tertiary: '#1A374D',
 		svgColor: '#8b8989',
 		switch: '#f4fbff',
 		button: {

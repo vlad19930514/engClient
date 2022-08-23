@@ -1,12 +1,13 @@
 import { TypeMaterialIconName } from '@/shared/types/icons.types'
+import { ReactNode } from 'react'
 
 export interface IMenuItem {
 	icon?: TypeMaterialIconName
-	title: string
+	title?: string
 	link: string
 }
 
 export interface IMenu {
-	title: string
-	items: IMenuItem[]
+	item: IMenuItem
+	children?: ReactNode
 }

@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { Ibutton } from './Button'
 
 export const Container = styled.button<Ibutton>`
+	font-size: 1.5rem;
 	background-color: ${(props) =>
 		props.selected ? props.theme.colors.button.selected : 'transparent'};
 	color: ${(props) =>

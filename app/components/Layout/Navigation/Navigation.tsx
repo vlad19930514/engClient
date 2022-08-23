@@ -7,6 +7,8 @@ import { ReactNode, useEffect, useRef, useState } from 'react'
 import Logo from '../../../assets/Logo'
 
 import AuthItems from './MenuContainer/auth/AuthItems'
+import MenuItem from './MenuItem/MenuItem'
+import { Profile } from './Profile/Profile'
 
 import { Container } from './styles'
 
@@ -26,6 +28,7 @@ function Navigation({ children }: NavigationProps) {
 			<Logo />
 			<AuthItems />
 			{children}
+			<Profile />
 		</Container>
 	)
 }

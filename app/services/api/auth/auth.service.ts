@@ -8,6 +8,7 @@ import { IAuthResponse } from '@/store/user/user.interface'
 
 import { removeTokensStorage, saveToStorage } from './auth.helper'
 import axiosWithAuth from '../api-helpers/interceptors'
+import { IUser } from '@/shared/types/user.types'
 
 export const AuthService = {
 	async register(email: string, password: string) {

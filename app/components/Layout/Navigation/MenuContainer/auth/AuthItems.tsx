@@ -1,20 +1,13 @@
+import { useTypedSelector } from '@/hooks/useTypedSelector'
 import { useAuth } from '../../../../../hooks/useAuth'
-import LogoutButton from './LogoutButton'
 import MenuItem from '../../MenuItem/MenuItem'
-import styled from 'styled-components'
-
-const UlContainer = styled.ul`
-	display: flex;
-	li {
-		margin-right: 1vw;
-	}
-`
+import { UlContainer } from './styles'
 
 const AuthItems = () => {
 	const { user } = useAuth()
-
+	const { hamburger } = useTypedSelector((state) => state.navigation)
 	return (
-		<UlContainer>
+		<UlContainer checked={hamburger}>
 			<MenuItem
 				item={{
 					link: '/edit',
@@ -27,23 +20,13 @@ const AuthItems = () => {
 					title: 'Тренировка',
 				}}
 			/>
-			<MenuItem
-				item={{
-					link: '/profile',
-					title: 'Profile',
-				}}
-			/>
+
 			<MenuItem
 				item={{
 					link: '/settings',
 					title: 'settings',
 				}}
 			/>
-			{user ? (
-				<LogoutButton />
-			) : (
-				<MenuItem item={{ icon: 'MdLogin', link: '/auth', title: 'Login' }} />
-			)}
 
 			{user?.isAdmin && (
 				<MenuItem

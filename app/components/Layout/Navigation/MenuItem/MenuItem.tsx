@@ -3,25 +3,22 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { FC } from 'react'
 
-import { IMenuItem } from './menu.types'
+import { IMenu, IMenuItem } from './menu.types'
 import Button from '../../../ui/Button/Button'
 
 import { useActions } from '@/hooks/redux/useActions'
 
-const MenuItem: FC<{ item: IMenuItem }> = ({ item }) => {
+const MenuItem = ({ item, children }: IMenu) => {
 	const { navigationSetHamburger } = useActions()
-	const clickOnMenu = () => {
-		navigationSetHamburger(false)
-	}
+	const clickOnMenu = () => {}
 	return (
 		<li onClick={() => clickOnMenu()}>
 			<Link href={item.link}>
-				<a>
-					<Button>
-						{item.icon ? <MaterialIcon name={item.icon} /> : null}
-						<span>{item.title}</span>
-					</Button>
-				</a>
+				<Button>
+					{item.icon ? <MaterialIcon name={item.icon} /> : null}
+					<span>{item.title}</span>
+					{children}
+				</Button>
 			</Link>
 		</li>
 	)
