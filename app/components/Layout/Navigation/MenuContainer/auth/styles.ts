@@ -40,5 +40,8 @@ export const UlContainer = styled.ul<Props>`
 		border: 0;
 		transform: none;
 		background-color: transparent;
+		li:not(:last-child) {
+			border-bottom: none;
+		}
 	}
 `
